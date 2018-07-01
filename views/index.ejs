@@ -1,0 +1,29 @@
+<% include partials/header.ejs %>
+<div class="container main">
+    <h1> Welcome to the Blog page.</h1>
+    <h3>Here you can upload new images with title and description</h3>
+</div> 
+<% blogs.forEach(function(blog){ %>
+<div class ="container" >
+    <div class = "image">
+    <img src = "<%= blog.image %>" >
+    </div>
+    <div class = "content">
+        <a class="header" href = "/blogs/<%= blog._id %>"><%= blog.title %>
+        </a>
+    </div>
+    <div class="meta">
+       <span><%=blog.created.toDateString() %>
+       </span>
+    </div>
+    <div class="description">
+        <h3> <%= blog.body.substring(0,10) %>... 
+        </h3>
+        <br/>
+        <br/>
+        <br/>
+    </div>
+</div>
+<% }) %>
+
+<% include partials/footer.ejs %>
